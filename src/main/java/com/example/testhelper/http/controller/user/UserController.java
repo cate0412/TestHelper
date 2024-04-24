@@ -1,8 +1,8 @@
 package com.example.testhelper.http.controller.user;
 
 import com.example.testhelper.domain.user.User;
-import com.example.testhelper.dto.UserRequestDto;
-import com.example.testhelper.dto.UserResponseDto;
+import com.example.testhelper.dto.user.UserRequestDto;
+import com.example.testhelper.dto.user.UserResponseDto;
 import com.example.testhelper.service.user.UserService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

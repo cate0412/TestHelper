@@ -1,8 +1,8 @@
 package com.example.testhelper.http.controller.user;
 
 import com.example.testhelper.domain.user.User;
-import com.example.testhelper.dto.UserRequestDto;
-import com.example.testhelper.dto.UserResponseDto;
+import com.example.testhelper.dto.user.UserRequestDto;
+import com.example.testhelper.dto.user.UserResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;

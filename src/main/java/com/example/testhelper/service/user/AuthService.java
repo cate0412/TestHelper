@@ -3,7 +3,7 @@ package com.example.testhelper.service.user;
 import com.example.testhelper.config.JwtTokenProvider;
 import com.example.testhelper.domain.user.User;
 import com.example.testhelper.domain.user.UserRepository;
-import com.example.testhelper.dto.AuthDto;
+import com.example.testhelper.dto.user.AuthDto;
 import com.example.testhelper.exception.ApiException;
 import com.example.testhelper.exception.enums.CommonExceptionEnum;
 import jakarta.transaction.Transactional;

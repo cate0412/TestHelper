@@ -1,6 +1,6 @@
 package com.example.testhelper.http.controller.auth;
 
-import com.example.testhelper.dto.AuthDto;
+import com.example.testhelper.dto.user.AuthDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
