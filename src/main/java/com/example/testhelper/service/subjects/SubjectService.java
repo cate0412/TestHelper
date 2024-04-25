@@ -5,7 +5,7 @@ import com.example.testhelper.domain.subject.*;
 import com.example.testhelper.domain.system.CodeRepository;
 import com.example.testhelper.domain.user.User;
 import com.example.testhelper.dto.subject.SubjectInfoDto;
-import com.example.testhelper.dto.subject.SubjectRegisterListDto;
+import com.example.testhelper.dto.subject.SubjectRegisterDto;
 import com.example.testhelper.enums.SubjectRegisterEnum;
 import com.example.testhelper.exception.ApiException;
 import com.example.testhelper.exception.enums.CommonExceptionEnum;
@@ -33,10 +33,8 @@ public class SubjectService {
         return subjects.stream().map(SubjectInfoDto::new).toList();
     }
 
-    public List<SubjectRegisterListDto> getRegisterList(User user) {
-        List<SubjectRegister> registerList = registerRepositoryCustom.getRegisterList(user.getId());
-
-        return registerList.stream().map(SubjectRegisterListDto::new).collect(Collectors.toList());
+    public List<SubjectRegisterDto> getRegisterList(User user) {
+        return registerRepositoryCustom.getRegisterList(user.getId());
     }
 
     public SubjectInfoDto getSubject(Integer subjectId) {

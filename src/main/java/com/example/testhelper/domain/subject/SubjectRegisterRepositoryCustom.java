@@ -1,6 +1,8 @@
 package com.example.testhelper.domain.subject;
 
+import com.example.testhelper.dto.subject.SubjectRegisterDto;
 import com.example.testhelper.enums.SubjectRegisterEnum;
+import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -24,11 +26,18 @@ public class SubjectRegisterRepositoryCustom {
                 .fetchFirst() > 0;
     }
 
-    public List<SubjectRegister> getRegisterList(Integer userId){
-        return queryFactory.selectFrom(subjectRegister)
-                .where(subjectRegister.user.id.eq(userId))
+
+    public List<SubjectRegisterDto> getRegisterList(Integer userId){
+        return queryFactory.from(subjectRegister)
+                .select(Projections.constructor(SubjectRegisterDto.class,
+                        subjectRegister.id,
+                        subjectRegister.status.name.as("subjectStatus"),
+                        subjectRegister.status.label.as("subjectLabel"),
+                        subjectRegister.subject.name.as("subjectName"),
+                        subjectRegister.subject.price,
+                        subjectRegister.subject.validDay))
+                .where(subjectRegister.user.id.eq((userId)))
                 .fetch();
     }
-
 
 }

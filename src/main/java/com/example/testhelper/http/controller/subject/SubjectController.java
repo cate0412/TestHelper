@@ -2,7 +2,7 @@ package com.example.testhelper.http.controller.subject;
 
 import com.example.testhelper.domain.user.User;
 import com.example.testhelper.dto.subject.SubjectInfoDto;
-import com.example.testhelper.dto.subject.SubjectRegisterListDto;
+import com.example.testhelper.dto.subject.SubjectRegisterDto;
 import com.example.testhelper.service.subjects.SubjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -26,7 +26,7 @@ public class SubjectController implements SubjectApi {
 
     @GetMapping("/registerList")
     @ResponseStatus(HttpStatus.OK)
-    public List<SubjectRegisterListDto> getRegisterList(@AuthenticationPrincipal User user) {
+    public List<SubjectRegisterDto> getRegisterList(@AuthenticationPrincipal User user) {
         return subjectService.getRegisterList(user);
     }
 

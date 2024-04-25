@@ -3,7 +3,7 @@ package com.example.testhelper.http.controller.subject;
 
 import com.example.testhelper.domain.user.User;
 import com.example.testhelper.dto.subject.SubjectInfoDto;
-import com.example.testhelper.dto.subject.SubjectRegisterListDto;
+import com.example.testhelper.dto.subject.SubjectRegisterDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -11,7 +11,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestAttribute;
 
 import java.util.List;
 
@@ -27,9 +26,9 @@ public interface SubjectApi {
 
      @Operation(summary = "신청 과목 목록 조회")
     @ApiResponse(responseCode = "200", content = {
-            @Content(mediaType = "application/json", schema = @Schema(implementation = SubjectRegisterListDto.class))
+            @Content(mediaType = "application/json", schema = @Schema(implementation = SubjectRegisterDto.class))
     })
-    List<SubjectRegisterListDto> getRegisterList(@AuthenticationPrincipal User user);
+    List<SubjectRegisterDto> getRegisterList(@AuthenticationPrincipal User user);
 
 
 
