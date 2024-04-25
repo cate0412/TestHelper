@@ -44,11 +44,10 @@ public interface UserApi {
             @PathVariable Integer id
     );
 
+    @Operation(summary = "회원비밀번호 수정")
     @ApiResponse(responseCode = "200", content = {
             @Content(mediaType = "application/json")
     })
-
-    @Operation(summary = "회원비밀번호 수정")
     Integer updateUserPassword(
             User user,
             @Parameter(description = "유저 ID", required = true)

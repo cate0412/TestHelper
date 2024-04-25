@@ -16,7 +16,7 @@ public class SubjectRepositoryCustom  {
     private final JPAQueryFactory queryFactory;
 
 
-    public List<Subject>getSubjects(){
+    public List<Subject>getSubjectList(){
         return queryFactory.selectFrom(subject).fetch();
     }
 
@@ -25,6 +25,5 @@ public class SubjectRepositoryCustom  {
                 .where(subject.id.eq(subjectId))
                 .fetchOne();
     }
-
 
 }
