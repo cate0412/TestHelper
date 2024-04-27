@@ -24,12 +24,11 @@ public interface SubjectApi {
     List<SubjectInfoDto> getSubjectList();
 
 
-     @Operation(summary = "신청 과목 목록 조회")
+    @Operation(summary = "신청 과목 목록 조회")
     @ApiResponse(responseCode = "200", content = {
             @Content(mediaType = "application/json", schema = @Schema(implementation = SubjectRegisterDto.class))
     })
     List<SubjectRegisterDto> getRegisterList(@AuthenticationPrincipal User user);
-
 
 
     @Operation(summary = "과목 상세 조회")
