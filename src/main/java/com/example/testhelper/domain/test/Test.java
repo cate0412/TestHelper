@@ -22,6 +22,9 @@ public class Test extends BaseTimeEntity {
     @Column(nullable = false)
     private String name;
 
+    @Column(columnDefinition = "text")
+    private String description;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subject_id")
     private Subject subject;
