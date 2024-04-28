@@ -40,4 +40,11 @@ public class SubjectRegisterRepositoryCustom {
                 .fetch();
     }
 
+    public SubjectRegister getSubjectRegister(Integer userId, Integer subjectId){
+        return queryFactory.selectFrom(subjectRegister)
+                .where(subjectRegister.user.id.eq(userId),
+                        subjectRegister.subject.id.eq(subjectId))
+                .fetchFirst();
+    }
+
 }

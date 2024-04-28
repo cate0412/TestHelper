@@ -9,10 +9,10 @@ import java.util.List;
 
 @Getter
 public class SubjectDetailDto {
-    private Integer id;
-    private String name;
-    private Integer validDay;
-    private List<TestResultDto> testResultList;
+    private final Integer id;
+    private final String name;
+    private final Integer validDay;
+    private final List<TestResultDto> testResultList;
 
     @Builder
     public SubjectDetailDto(Subject subject, List<TestResultDto> testResultList) {

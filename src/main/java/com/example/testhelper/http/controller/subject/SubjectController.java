@@ -50,4 +50,11 @@ public class SubjectController implements SubjectApi {
         return subjectService.registerSubject(user, subjectId);
     }
 
+    @DeleteMapping("/{subjectId}/delete")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteSubject(@AuthenticationPrincipal User user,
+                              @PathVariable Integer subjectId) {
+        subjectService.deleteSubject(user, subjectId);
+    }
+
 }

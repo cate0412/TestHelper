@@ -47,4 +47,8 @@ public interface SubjectApi {
 
     @Operation(summary = "과목 신청")
     Integer registerSubject(@AuthenticationPrincipal User user, @PathVariable Integer subjectId);
+
+    @Operation(summary = "과목 삭제")
+    void deleteSubject(@AuthenticationPrincipal User user, @PathVariable Integer subjectId);
+
 }

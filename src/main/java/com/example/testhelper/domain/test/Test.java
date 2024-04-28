@@ -2,7 +2,6 @@ package com.example.testhelper.domain.test;
 
 import com.example.testhelper.domain.BaseTimeEntity;
 import com.example.testhelper.domain.subject.Subject;
-import com.example.testhelper.domain.subject.SubjectTestMap;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,8 +31,5 @@ public class Test extends BaseTimeEntity {
 
     @OneToMany(mappedBy = "test", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Question> questions = new ArrayList<>();
-
-    @OneToMany(mappedBy = "test", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<SubjectTestMap> subjectTestMap = new ArrayList<>();
 
 }

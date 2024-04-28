@@ -4,6 +4,7 @@ import com.example.testhelper.domain.BaseTimeEntity;
 import com.example.testhelper.domain.system.Code;
 import com.example.testhelper.domain.user.User;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.BatchSize;
@@ -38,4 +39,11 @@ public class TestResult extends BaseTimeEntity {
     @BatchSize(size = 100)
     @OneToMany(mappedBy = "testResult", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<QuestionAnswer> questionAnswer = new ArrayList<>();
+
+    @Builder
+    public TestResult(Test test, User user, Code status){
+        this.test = test;
+        this.user = user;
+        this.status = status;
+    }
 }
