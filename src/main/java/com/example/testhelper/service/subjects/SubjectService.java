@@ -49,16 +49,17 @@ public class SubjectService {
     }
 
     public SubjectDetailDto getSubjectDetail(User user, Integer subjectId) {
-        this.subject = subjectRepository.getSubject(subjectId);
+        SubjectRegister subjectRegister = registerRepositoryCustom.getSubjectRegister(user.getId(), subjectId);
 
-        if (subject == null) {
+        if (subjectRegister == null) {
             throw new ApiException(CommonExceptionEnum.NOT_FOUND);
         }
 
         List<TestResultDto> testResultList = testResultRepositoryCustom.getTestResult(user.getId(), subjectId);
 
         return SubjectDetailDto.builder()
-                .subject(subject)
+                .registerId(subjectRegister.getId())
+                .subject(subjectRegister.getSubject())
                 .testResultList(testResultList)
                 .build();
     }

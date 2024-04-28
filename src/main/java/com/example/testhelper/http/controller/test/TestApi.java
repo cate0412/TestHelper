@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface TestApi {
 
 
-    @Operation(summary = "모의고사 조회")
+    @Operation(summary = "모의고사 조회 - 기능 구현중(작동X)")
     @ApiResponse(responseCode = "200", content = {
             @Content(mediaType = "application/json", schema = @Schema(implementation = TestDto.class))
     })

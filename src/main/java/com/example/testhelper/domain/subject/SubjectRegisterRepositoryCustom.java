@@ -30,7 +30,7 @@ public class SubjectRegisterRepositoryCustom {
     public List<SubjectRegisterDto> getRegisterList(Integer userId){
         return queryFactory.from(subjectRegister)
                 .select(Projections.constructor(SubjectRegisterDto.class,
-                        subjectRegister.id,
+                        subjectRegister.id.as("registerId"),
                         subjectRegister.status.name.as("subjectStatus"),
                         subjectRegister.status.label.as("subjectLabel"),
                         subjectRegister.subject.name.as("subjectName"),
