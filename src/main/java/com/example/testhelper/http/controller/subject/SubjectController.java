@@ -1,7 +1,8 @@
 package com.example.testhelper.http.controller.subject;
 
 import com.example.testhelper.domain.user.User;
-import com.example.testhelper.dto.subject.SubjectInfoDto;
+import com.example.testhelper.dto.subject.SubjectDetailDto;
+import com.example.testhelper.dto.subject.SubjectDto;
 import com.example.testhelper.dto.subject.SubjectRegisterDto;
 import com.example.testhelper.service.subjects.SubjectService;
 import lombok.RequiredArgsConstructor;
@@ -20,9 +21,16 @@ public class SubjectController implements SubjectApi {
 
     @GetMapping("")
     @ResponseStatus(HttpStatus.OK)
-    public List<SubjectInfoDto> getSubjectList() {
+    public List<SubjectDto> getSubjectList() {
         return subjectService.getSubjectList();
     }
+
+    @GetMapping("/{subjectId}")
+    @ResponseStatus(HttpStatus.OK)
+    public SubjectDto getSubject(@PathVariable Integer subjectId) {
+        return subjectService.getSubject(subjectId);
+    }
+
 
     @GetMapping("/registerList")
     @ResponseStatus(HttpStatus.OK)
@@ -30,9 +38,10 @@ public class SubjectController implements SubjectApi {
         return subjectService.getRegisterList(user);
     }
 
-    @GetMapping("/{subjectId}")
-    public SubjectInfoDto getSubjectInfo(@PathVariable Integer subjectId) {
-        return subjectService.getSubject(subjectId);
+    @GetMapping("/registerList/{subjectId}")
+    public SubjectDetailDto getSubjectDetail(@AuthenticationPrincipal User user,
+                                             @PathVariable Integer subjectId) {
+        return subjectService.getSubjectDetail(user, subjectId);
     }
 
     @PostMapping("/{subjectId}/register")

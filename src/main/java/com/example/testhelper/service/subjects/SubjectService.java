@@ -4,7 +4,8 @@ import com.example.testhelper.domain.subject.*;
 
 import com.example.testhelper.domain.system.CodeRepository;
 import com.example.testhelper.domain.user.User;
-import com.example.testhelper.dto.subject.SubjectInfoDto;
+import com.example.testhelper.dto.subject.SubjectDetailDto;
+import com.example.testhelper.dto.subject.SubjectDto;
 import com.example.testhelper.dto.subject.SubjectRegisterDto;
 import com.example.testhelper.enums.SubjectRegisterEnum;
 import com.example.testhelper.exception.ApiException;
@@ -14,7 +15,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,20 +27,23 @@ public class SubjectService {
 
     private Subject subject;
 
-    public List<SubjectInfoDto> getSubjectList() {
+    public List<SubjectDto> getSubjectList() {
         List<Subject> subjects = subjectRepository.getSubjectList();
 
-        return subjects.stream().map(SubjectInfoDto::new).toList();
+        return subjects.stream().map(SubjectDto::new).toList();
+    }
+
+    public SubjectDto getSubject(Integer subjectId) {
+        this.subject = subjectRepository.getSubject(subjectId);
+        return new SubjectDto(subject);
     }
 
     public List<SubjectRegisterDto> getRegisterList(User user) {
         return registerRepositoryCustom.getRegisterList(user.getId());
     }
 
-    public SubjectInfoDto getSubject(Integer subjectId) {
-        this.subject = subjectRepository.getSubject(subjectId);
-
-        return new SubjectInfoDto(subject);
+    public SubjectDetailDto getSubjectDetail(User user, Integer subjectId){
+        return null;
     }
 
     public Integer registerSubject(User user, Integer subjectId) {
