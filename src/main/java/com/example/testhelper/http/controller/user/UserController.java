@@ -42,7 +42,7 @@ public class UserController implements UserApi{
     @PutMapping("/update/password/{id}")
     public Integer updateUserPassword(@AuthenticationPrincipal User user,
                                       @PathVariable Integer id,
-                                      @Valid @RequestBody UserRequestDto.PasswordUpdate PwRequestDto){
-        return userService.updateUserPassword(id, PwRequestDto);
+                                      @Valid @RequestBody UserRequestDto.PasswordUpdate requestDto){
+        return userService.updateUserPassword(id, requestDto);
     }
 }
